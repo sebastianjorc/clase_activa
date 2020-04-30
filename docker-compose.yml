@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+  ui:
+    container_name: ui
+    build: ./ui
+    command: npm run dev
+    volumes:
+      - ./ui:/usr/app
+      - ./usr/app/node_modules
+    ports:
+      - '3000:3000'
+    depends_on:
+      - api
+    stdin_open: true
+
+
+  api:
+    container_name: api
+    build: ./api
+    working_dir: /var/www/
+    volumes:
+      - ./api:/var/www
+
+  db:
+    container_name: db
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: portal
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: portal_user
+      SERVICE_TAGS: dev
+      SERVICE_NAME: pgsql
+
+  nginx:
+    container_name: nginx
+    image: nginx:alpine
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./api:/var/www
+      - ./api/nginx:/etc/nginx/conf.d
+
+      
