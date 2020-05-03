@@ -7,6 +7,7 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -21,6 +22,11 @@ class UserController extends Controller
         $users = User::all();
 
         return response()->json($users, 200);
+    }
+
+    public function user()
+    {
+        return response()->json(Auth::user(), 200);
     }
 
     /**
@@ -73,5 +79,15 @@ class UserController extends Controller
 
         return response()->json(null, 204);
     }
+
+    public function permissions() {
+        $permissions = [];
+          foreach (Permission::all() as $permission) {
+            if (Auth::user()->can($permission->name)) {
+              $permissions[] = $permission->name;
+            }
+          }
+          return response()->json($permissions, 200);
+      }
 
 }

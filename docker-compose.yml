@@ -30,6 +30,8 @@ services:
       POSTGRES_USER: portal_user
       SERVICE_TAGS: dev
       SERVICE_NAME: pgsql
+    volumes: 
+      - ./db:/var/lib/postgresql/data
 
   nginx:
     container_name: nginx

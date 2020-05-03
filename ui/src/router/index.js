@@ -149,12 +149,25 @@ export const constantRoutes = [
   },
 
   {
-    path: 'external-link',
+    path: '/vehicles',
     component: Layout,
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: '',
+        component: () => import('@/views/vehicles'),
+        meta: { title: 'Vehículos', icon: 'vehicle' }
+      }
+    ]
+  },
+
+  {
+    path: '/users',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/users'),
+        meta: { title: 'Usuarios', icon: 'user' }
       }
     ]
   },
