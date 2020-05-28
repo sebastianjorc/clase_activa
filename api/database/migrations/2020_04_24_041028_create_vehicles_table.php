@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateVehiclesTable extends Migration
 {
@@ -16,8 +17,8 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->string('vin');
-            $table->string('plate');
+            $table->string('vin')->nullable();
+            $table->string('plate')->unique()->nullable();
             $table->string('maker');
             $table->string('model');
             $table->integer('year')->nullable();
@@ -27,6 +28,8 @@ class CreateVehiclesTable extends Migration
             $table->string('color')->nullable();
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE vehicles ADD CONSTRAINT chkNotNull CHECK (vin is not null or plate is not null)');
     }
 
     /**

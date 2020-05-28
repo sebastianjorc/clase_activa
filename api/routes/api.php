@@ -18,12 +18,23 @@ use Illuminate\Http\Request;
 }); */
 
 
-Route::post('login', 'AuthController@login');
+Route::post('auth/login', 'AuthController@login');
+Route::post('auth/register', 'AuthController@register');
 
 Route::group(['middleware' => 'auth:api'], function(){
-    Route::post('logout', 'AuthController@logout');
-    Route::get('users', 'UserController@index');
-    Route::get('user', 'UserController@user');
+    Route::post('auth/logout', 'AuthController@logout');
+    Route::get('auth/details', 'AuthController@details');
+    
+    Route::resource('users', 'UserController');
+    Route::resource('vehicles', 'VehicleController');
+    Route::resource('parts', 'PartController');
+    Route::resource('notes', 'NoteController');
+
+    // Route::get('vehicle', 'VehicleController@index');
+    // Route::get('vehicle/{vehicle}', 'VehicleController@show');
+    // Route::post('vehicle', 'VehicleController@store');
+    // Route::put('vehicle/{vehicle}', 'VehicleController@update');
+    // Route::delete('vehicle', 'VehicleController@destroy');
 });
 
 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Part extends Model
 {
+    protected $fillable = ['name', 'description', 'code', 'active'];
+
     public function provider()
     {
         return $this->belongsTo('App\Provider');

@@ -16,9 +16,8 @@ class CreatePartsTable extends Migration
         Schema::create('parts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->string('code')->nullable();
-            $table->boolean('enabled')->default(true);
+            $table->string('description')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

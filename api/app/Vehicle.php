@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
+    protected $fillable = [
+        'user_id', 
+        'vin', 
+        'plate', 
+        'maker', 
+        'model', 
+        'year', 
+        'engine', 
+        'color', 
+        'transmission', 
+        'fuel'
+    ];
+
     public function defects()
     {
         return $this->hasMany('App\Defect');

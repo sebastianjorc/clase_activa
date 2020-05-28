@@ -1,21 +1,26 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import getters from './getters'
-import app from './modules/app'
-import settings from './modules/settings'
-import account from './modules/account'
-import user from './modules/user'
+
+import auth from './modules/auth'
+import navbar from './modules/navbar'
+import sidebar from './modules/sidebar'
+import part from './modules/part'
+import vehicle from './modules/vehicle'
+import make from './modules/make'
+import note from './modules/note'
+import quotation from './modules/quotation'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
   modules: {
-    app,
-    settings,
-    account,
-    user
-  },
-  getters
+    auth,
+    navbar,
+    part,
+    vehicle,
+    sidebar,
+    make,
+    note,
+    quotation
+  }
 })
-
-export default store

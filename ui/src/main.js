@@ -1,41 +1,55 @@
+// import '@/scss/main.scss'
+
 import Vue from 'vue'
-
-import 'normalize.css/normalize.css' // A modern alternative to CSS resets
-
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import locale from 'element-ui/lib/locale/lang/es' // lang i18n
-
-import '@/styles/index.scss' // global css
-
-import App from './App'
-import store from './store'
+import VueMeta from 'vue-meta'
+import App from './App.vue'
 import router from './router'
+import store from './store'
 
-import '@/icons' // icon
-import '@/permission' // permission control
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
 
-/**
- * If you don't want to use mock-server
- * you want to use MockJs for mock api
- * you can execute: mockXHR()
- *
- * Currently MockJs will be used in the production environment,
- * please remove it before going online ! ! !
- */
-if (process.env.NODE_ENV === 'production') {
-  const { mockXHR } = require('../mock')
-  mockXHR()
-}
-
-// set ElementUI lang to EN
-Vue.use(ElementUI, { locale })
+import { CHECK_AUTH, LOGOUT } from "./store/actions.type";
+import ApiService from "./common/api";
+import JwtService from './common/jwt';
 
 Vue.config.productionTip = false
 
+Vue.use(VueMeta)
+Vue.use(Buefy)
+
+ApiService.init();
+
+const whiteList = ['/login'] // no redirect whitelist
+
+router.beforeEach(async(to, from, next) => {
+  // determine whether the user has logged in
+  const hasToken = JwtService.getToken()
+
+  if (hasToken) {
+    if (to.path === '/login') {
+      next({ path: '/' })
+    } else {
+      try {
+        await store.dispatch(CHECK_AUTH)
+        next()
+      } catch (error) {
+        await store.dispatch(LOGOUT)
+        next({ path: '/login' })
+      }
+    }
+  } else {
+    if (whiteList.indexOf(to.path) !== -1) {
+      next()
+    } else {
+      next({ path: '/login' })
+    }
+  }
+})
+
+
 new Vue({
-  el: '#app',
   router,
   store,
-  render: h => h(App)
-})
+  render: h => h(App),
+}).$mount('#app')

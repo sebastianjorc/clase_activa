@@ -1,18 +1,17 @@
-version: "3.7"
+version: "3.8"
 services:
   ui:
     container_name: ui
     build: ./ui
-    command: npm run dev
+    command: npm run serve
     volumes:
-      - ./ui:/usr/app
-      - ./usr/app/node_modules
+      - ./ui:/app
+      - /app/node_modules
     ports:
       - '3000:3000'
     depends_on:
       - api
     stdin_open: true
-
 
   api:
     container_name: api
@@ -21,8 +20,8 @@ services:
     volumes:
       - ./api:/var/www
 
-  db:
-    container_name: db
+  postgres:
+    container_name: postgres
     image: postgres:alpine
     environment:
       POSTGRES_DB: portal
@@ -31,16 +30,21 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: pgsql
     volumes: 
-      - ./db:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
 
   nginx:
     container_name: nginx
     image: nginx:alpine
     ports:
-      - '80:80'
+      - '8080:8080'
       - '443:443'
     volumes:
       - ./api:/var/www
       - ./api/nginx:/etc/nginx/conf.d
+
+volumes:
+  postgres_data:
 
       
