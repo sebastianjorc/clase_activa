@@ -1,8 +1,6 @@
 import ApiService from '@/common/api';
 import { 
   SET_PARTS,
-  TOGGLE_ADD_PART, 
-  TOGGLE_EDIT_PART, 
   SET_PART, 
   SET_ERROR 
 } from '../mutations.type';
@@ -45,14 +43,6 @@ const actions = {
 }
 
 const mutations = {
-  [TOGGLE_ADD_PART](state) {
-    state.showEditPart = false;
-    state.showAddPart = !state.showAddPart;
-  },
-  [TOGGLE_EDIT_PART](state) {
-    state.showAddPart = false;
-    state.showEditPart = !state.showEditPart;
-  },
   [SET_PART](state, part) {
     state.all.data = [part].concat(state.all.data);
   },

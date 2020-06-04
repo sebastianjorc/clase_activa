@@ -20,34 +20,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function vehicles()
+    public function parts()
     {
-        return $this->hasMany('App\Vehicle');
-    }
-
-    public function clients()
-    {
-        return $this->hasMany('App\Client');
-    }
-
-    public function customers()
-    {
-        return $this->hasMany('App\Customer');
-    }
-
-    public function providers()
-    {
-        return $this->hasMany('App\Provider');
-    }
-
-    public function quotations()
-    {
-        return $this->hasMany('App\Quotation');
-    }
-
-    public function work()
-    {
-        return $this->hasMany('App\Work');
+        return $this->hasMany('App\Part');
     }
 
 }

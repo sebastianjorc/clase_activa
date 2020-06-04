@@ -18,7 +18,7 @@
   </form>
 </template>
 <script>
-import { TOGGLE_ADD_PART } from '@/store/mutations.type'
+import { TOGGLE_ADD_FORM } from '@/store/mutations.type'
 import { ADD_PART } from '@/store/actions.type'
 export default {
   data() {
@@ -31,12 +31,12 @@ export default {
   },
   methods: {
     cancel() {
-      this.$store.commit(TOGGLE_ADD_PART)
+      this.$store.commit(TOGGLE_ADD_FORM)
     },
     addPart() {
       this.$store.dispatch(ADD_PART, this.form)
         .then((response) => {
-          this.$store.commit(TOGGLE_ADD_PART)
+          this.$store.commit(TOGGLE_ADD_FORM)
         })
     }
   },

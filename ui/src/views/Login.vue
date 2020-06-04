@@ -2,7 +2,7 @@
   <section class="hero is-primary is-fullheight">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title has-text-centered">PortalApp</h1>
+        <h1 class="title has-text-centered">MiApp</h1>
         <div class="columns is-centered">
           <div class="column is-5-tablet is-4-desktop is-3-widescreen">
             <form class="box">

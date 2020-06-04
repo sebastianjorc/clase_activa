@@ -1,7 +1,5 @@
 import ApiService from '@/common/api';
 import {
-  TOGGLE_ADD_NOTE,
-  TOGGLE_EDIT_NOTE,
   SET_NOTES,
   SET_NOTE,
   SET_ERROR
@@ -52,14 +50,6 @@ const actions = {
 }
 
 const mutations = {
-  [TOGGLE_ADD_NOTE](state) {
-    state.showEditNote = false;
-    state.showAddNote = !state.showAddNote;
-  },
-  [TOGGLE_EDIT_NOTE](state) {
-    state.showAddNote = false;
-    state.showEditNote = !state.showEditNote;
-  },
   [SET_NOTE](state, note) {
     state.all.data = [note].concat(state.all.data);
   },

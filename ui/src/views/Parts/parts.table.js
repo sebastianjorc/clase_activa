@@ -18,7 +18,7 @@ export const PARTS_COLUMNS = [
   {
     field: 'active',
     label: 'Activo'
-  },
+  }
 ];
 
 export const STOCKS_COLUMNS = [

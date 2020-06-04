@@ -64,7 +64,7 @@ class UserController extends Controller
         $user = User::create($input);
 
         //$success['token'] = 
-        $user->createToken('PortalApp')->accessToken;
+        $user->createToken('MiApp')->accessToken;
         //$success['name'] = $user->name;
         //return response()->json(['success'=>$success], 200); 
 

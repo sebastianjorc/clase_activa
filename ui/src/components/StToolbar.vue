@@ -17,25 +17,39 @@
           class="is-warning is-size-7-mobile" 
           label="Editar"
           outlined
-          disabled
+          :disabled="!isSelected"
         />
       </div>
-    </div>
-    <div class="level-right">
       <div class="level-item">
         <b-button 
           @click="remove" 
           icon-left="delete-outline" 
           class="is-danger is-size-7-mobile"
+          label="Eliminar"
           outlined 
-          disabled 
+          :disabled="!isSelected" 
           />
       </div>
     </div>
+    <!-- <div class="level-right">
+      <div class="level-item">
+        <b-button
+          @click="cancel"
+          icon-left="close"
+          class="is-danger is-size-7-mobile"
+          label="Cancelar"
+          outlined
+          v-if="isSelected"
+        />
+      </div>
+    </div> -->
   </nav>
 </template>
 
 <script>
+
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'StToolbar',
   props: ['addItem', 'editItem', 'removeItem'],
@@ -48,7 +62,16 @@ export default {
     },
     remove() {
       this.removeItem()
+    },
+    // cancel() {
+      
+    // }
+  },
+  computed: {
+    ...mapGetters(['getSelectedRow']),
+    isSelected(){
+      return this.getSelectedRow === null ? false : true
     }
-  }
+  },
 }
 </script>

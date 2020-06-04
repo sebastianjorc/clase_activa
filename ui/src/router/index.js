@@ -26,16 +26,6 @@ const routes = [
         }
       },
       {
-        path: 'vehicles',
-        component: () => import('@/views/Vehicles'),
-        meta: {
-          visible: true,
-          name: 'Vehículos',
-          icon: 'car',
-          category: 'Menu'
-        }
-      },
-      {
         path: 'parts',
         component: () => import('@/views/Parts'),
         meta: {
@@ -46,33 +36,12 @@ const routes = [
         }
       },
       {
-        path: 'companies',
-        component: () => import('@/views/Companies'),
+        path: 'sales',
+        component: () => import('@/views/Sales'),
         meta: {
           visible: true,
-          name: 'Empresas',
-          icon: 'domain',
-          category: 'Menu'
-        }
-      },
-      {
-        path: 'quotations',
-        component: () => import('@/views/Quotations'),
-        meta: {
-          visible: true,
-          name: 'Cotizaciones',
-          icon: 'file-document',
-          category: 'Menu'
-        }
-      },
-      {
-        path: 'imports',
-        component: () => import('@/views/Imports'),
-        meta: {
-          visible: true,
-          name: 'Importaciones',
-          icon: 'airplane',
-          category: 'Menu'
+          name: 'Ventas',
+          icon: 'cash-usd-outline'
         }
       },
       {
@@ -120,7 +89,7 @@ const routes = [
         meta: {
           visible: true,
           name: 'Opciones',
-          icon: 'settings',
+          icon: 'cog',
           category: 'Administracion'
         }
       }

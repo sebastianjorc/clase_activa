@@ -3,26 +3,36 @@
     hoverable
     narrowed
     paginated
+    bordered
+    focusable
     backend-pagination
     :total="total"
     :per-page="perPage"
     :data="isEmpty ? [] : data"
     :columns="columns"
-    :checked-rows.sync="checkedRows"
+    :select="setSelectedRow"
+    :selected.sync="selected"
     :current.sync="current"
-    checkable
   >
     <template slot="empty">
       <section class="section">
         <div class="content has-text-grey has-text-centered">
           <p><b-icon icon="emoticon-sad" size="is-large"></b-icon></p>
-          <p>No hay datos.</p>
+          <p>No hay datos</p>
         </div>
       </section>
     </template>
-    <template slot="bottom-left">
-      <b>Seleccionados</b>: {{ checkedRows.length }}
-    </template>
+    <!-- <template slot="bottom-left">
+      <b-button 
+        outlined
+        class="is-danger" 
+        icon-left="close" 
+        label="Cancelar" 
+        v-if="isSelected" 
+        @click="clearSelected"
+      />
+      <b>Seleccionados</b>: {{ getSelectedRow.name }}
+    </template> -->
     <b-input
       v-if="!props.column.numeric && !isEmpty"
       slot="searchable"
@@ -35,13 +45,14 @@
   </b-table>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
+import { SET_SELECTED_ROW } from '@/store/mutations.type'
 export default {
   name: 'StTable',
   data() {
     return {
-      checkedRows: [],
-      page: 1
+      page: 1,
+      selected: null
     }
   },
   props: {
@@ -52,10 +63,22 @@ export default {
     perPage: Number,
   },
   computed: {
+    ...mapGetters(['getSelectedRow']),
     isEmpty() {
-      return this.data!=undefined && this.data.length < 1
+      return this.data != undefined && this.data.length < 1
+    },
+    setSelectedRow(){
+      this.$store.commit(SET_SELECTED_ROW, this.selected)
+    },
+    isSelected() {
+      return this.selected === null ? false : true
     }
-  }
+  },
+  // methods: {
+  //   clearSelected(){
+  //     this.selected = null
+  //   }
+  // },
   
 }
 </script>

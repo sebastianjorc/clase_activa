@@ -23,11 +23,11 @@ RUN docker-php-ext-install pdo_pgsql mbstring exif pcntl bcmath gd zip
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u 1000 -d /home/portal portal
-RUN mkdir -p /home/portal/.composer && \
-    chown -R portal:portal /home/portal
+RUN useradd -G www-data,root -u 1000 -d /home/dev dev
+RUN mkdir -p /home/dev/.composer && \
+    chown -R dev:dev /home/dev
 
 # Set working directory
 WORKDIR /var/www
 
-USER portal
+USER dev

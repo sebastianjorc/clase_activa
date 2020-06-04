@@ -12,4 +12,3 @@
 */
 
 Route::view('/{any}', 'index')->where('any', '.*');
-//Route::get('/home', 'HomeController@index')->name('home');

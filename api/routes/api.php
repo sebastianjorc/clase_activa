@@ -26,15 +26,9 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('auth/details', 'AuthController@details');
     
     Route::resource('users', 'UserController');
-    Route::resource('vehicles', 'VehicleController');
     Route::resource('parts', 'PartController');
     Route::resource('notes', 'NoteController');
 
-    // Route::get('vehicle', 'VehicleController@index');
-    // Route::get('vehicle/{vehicle}', 'VehicleController@show');
-    // Route::post('vehicle', 'VehicleController@store');
-    // Route::put('vehicle/{vehicle}', 'VehicleController@update');
-    // Route::delete('vehicle', 'VehicleController@destroy');
 });
 
 

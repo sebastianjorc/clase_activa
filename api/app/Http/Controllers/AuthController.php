@@ -50,7 +50,7 @@ class AuthController extends Controller
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
 
-        $success['token'] = $user->createToken('PortalApp')->accessToken;
+        $success['token'] = $user->createToken('MiApp')->accessToken;
         $success['name'] = $user->name;
 
         return response()->json($success, 200); 

@@ -2,10 +2,10 @@
   <form class="box">
     <h1 class="subtitle">Editar Producto</h1>
     <b-field custom-class="is-size-7-mobile" horizontal label="Nombre">
-      <b-input custom-class="is-size-7-mobile" v-model="name" />
+      <b-input custom-class="is-size-7-mobile" v-model="form.name" />
     </b-field>
     <b-field custom-class="is-size-7-mobile" horizontal label="Descripción">
-      <b-input custom-class="is-size-7-mobile" v-model="description" />
+      <b-input custom-class="is-size-7-mobile" v-model="form.description" />
     </b-field>
     <b-field grouped position="is-right">
       <b-field>
@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import {TOGGLE_EDIT_PART} from '@/store/mutations.type'
+import {TOGGLE_EDIT_FORM} from '@/store/mutations.type'
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -29,7 +30,16 @@ export default {
   },
   methods: {
     cancel() {
-      this.$store.commit(TOGGLE_EDIT_PART)
+      this.$store.commit(TOGGLE_EDIT_FORM)
+    }
+  },
+  computed: {
+    ...mapGetters(['getSelectedRow']),
+    form: function() {
+      return {
+        name: this.getSelectedRow.name,
+        description: this.getSelectedRow.description
+      }
     }
   },
   

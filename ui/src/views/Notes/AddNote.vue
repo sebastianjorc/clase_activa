@@ -23,7 +23,7 @@
   </form>
 </template>
 <script>
-import { TOGGLE_ADD_NOTE } from '@/store/mutations.type'
+import { TOGGLE_ADD_FORM } from '@/store/mutations.type'
 import { ADD_NOTE } from '@/store/actions.type'
 export default {
   data() {
@@ -36,12 +36,12 @@ export default {
   },
   methods: {
     cancel() {
-      this.$store.commit(TOGGLE_ADD_NOTE)
+      this.$store.commit(TOGGLE_ADD_FORM)
     },
     addNote() {
       this.$store.dispatch(ADD_NOTE, this.form)
         .then((response) => {
-          this.$store.commit(TOGGLE_ADD_NOTE)
+          this.$store.commit(TOGGLE_ADD_FORM)
         })
     }
   },

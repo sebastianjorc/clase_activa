@@ -5,8 +5,8 @@
       :edit-item="editNote"
       :remove-item="removeNote"
     />
-    <add-note v-if="showAddNote" />
-    <edit-note v-if="showEditNote" />
+    <add-note v-if="showAddForm" />
+    <edit-note v-if="showEditForm" />
     <st-table
       :columns="NOTES_COLUMNS"
       :data="notes.data"
@@ -23,9 +23,9 @@
   import AddNote from './AddNote'
   import EditNote from './EditNote'
   import { NOTES_COLUMNS } from './notes.table'
-  import { TOGGLE_ADD_NOTE, TOGGLE_EDIT_NOTE } from '@/store/mutations.type'
+  import { TOGGLE_ADD_FORM, TOGGLE_EDIT_FORM } from '@/store/mutations.type'
   import { GET_NOTES } from '@/store/actions.type'
-  import { mapState } from 'vuex'
+  import { mapState, mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -41,17 +41,16 @@ export default {
   },
   computed: {
     ...mapState({
-      showAddNote: state => state.note.showAddNote,
-      showEditNote: state => state.note.showEditNote,
       notes: state => state.note.all
-    })
+    }),
+    ...mapGetters(['showAddForm', 'showEditForm'])
   },
   methods: {
     addNote() {
-      this.$store.commit(TOGGLE_ADD_NOTE);
+      this.$store.commit(TOGGLE_ADD_FORM);
     },
     editNote() {
-      this.$store.commit(TOGGLE_EDIT_NOTE);
+      this.$store.commit(TOGGLE_EDIT_FORM);
     },
     removeNote() {
       

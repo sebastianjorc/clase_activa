@@ -4,7 +4,7 @@
       <div class="navbar-brand">
         <a class="navbar-item">
           <a class="navbar-item" @click="toggleSidebar"><b-icon icon="menu"/></a>
-          <p class="navbar-item brand-text">PortalApp</p>
+          <p class="navbar-item brand-text">MiApp</p>
         </a>
       </div>
       <div class="navbar-menu">
