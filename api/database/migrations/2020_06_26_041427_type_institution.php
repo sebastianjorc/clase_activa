@@ -15,8 +15,10 @@ class TypeInstitution extends Migration
     {
         Schema::create('type_institutions', function (Blueprint $table) {
             $table->id();
-            $table->string('name_category');
-            $table->timestamps();
+            $table->string('name_category')->unique();
+            $table->string('description')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

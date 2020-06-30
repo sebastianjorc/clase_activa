@@ -17,13 +17,10 @@ class Commune extends Migration
 
             $table->id();
             $table->string('name')->lenght(30);
-            $table->integer('province_id');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
 
-            $table->foreign('province_id')
-                ->references('id')
-                ->on('Provinces')
-                ->onDelete('cascade');
+            $table->foreignId('province_id')->references('id')->on('Provinces')->onDelete('cascade');
         });
     }
 

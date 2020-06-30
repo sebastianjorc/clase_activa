@@ -15,9 +15,11 @@ class TypeEvaluation extends Migration
     {
         Schema::create('type_evaluations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name_category')->unique();
+            $table->string('description')->nulleable();
             $table->boolean('state')->default(1);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

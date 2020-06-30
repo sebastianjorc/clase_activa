@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            
+
             $table->id();
             $table->string('name');
             $table->string('avatar')->nullable();
@@ -28,13 +28,14 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->boolean('state')->default(1);
             $table->timestamp('email_verified_at')->nullable();
-            $table->timestamps();
-            
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+
             $table->foreignId('type_user_id')
             ->references('id')
             ->on('type_users')
             ->onDelete('cascade');
-            
+
             $table->foreignId('institution_id')
             ->references('id')
             ->on('Institutions')

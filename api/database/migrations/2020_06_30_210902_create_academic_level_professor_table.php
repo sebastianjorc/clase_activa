@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Attorney extends Migration
+class CreateAcademicLevelProfessorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,13 @@ class Attorney extends Migration
      */
     public function up()
     {
-        Schema::create('Attorneys', function (Blueprint $table) {
+        Schema::create('academic_level_professor', function (Blueprint $table) {
             $table->id();
-            $table->boolean('state')->default(1);
+            $table->foreignId('professor_id')->references('id')->on('professors')->onDelete('cascade');
+            $table->foreignId('academic_level_id')->references('id')->on('academic_levels')->onDelete('cascade');
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-
-            $table->foreignId('type_user_id')
-            ->references('id')
-            ->on('Type_users')
-            ->onDelete('cascade');
-
-            $table->foreignId('student_id')
-            ->references('id')
-            ->on('Students')
-            ->onDelete('cascade');
         });
     }
 
@@ -38,6 +30,6 @@ class Attorney extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Attorneys');
+        Schema::dropIfExists('academic_level_professor');
     }
 }

@@ -17,8 +17,9 @@ class CreateEvaluationsTable extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('state')->default(1);
-            $table->timestamps();
-            
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+
             $table->foreignId('type_evaluation_id')
             ->references('id')
             ->on('type_evaluations')

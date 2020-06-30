@@ -15,8 +15,10 @@ class Student extends Migration
     {
         Schema::create('Students', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            
+            $table->boolean('state')->default(1);
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+
             $table->foreignId('type_user_id')
             ->references('id')
             ->on('Type_users')

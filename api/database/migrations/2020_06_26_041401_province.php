@@ -15,12 +15,12 @@ class Province extends Migration
     {
         Schema::create('Provinces', function (Blueprint $table) {
 
-            $table->integer('id',1);
+            $table->id();
             $table->string('name')->lenght(30);
-            $table->integer('region_id');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
 
-            $table->foreign('region_id')
+            $table->foreignId('region_id')
             ->references('id')
             ->on('Regions')
             ->onDelete('cascade');

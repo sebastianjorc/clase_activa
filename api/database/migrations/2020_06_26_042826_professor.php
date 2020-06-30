@@ -16,8 +16,9 @@ class Professor extends Migration
         Schema::create('Professors', function (Blueprint $table) {
             $table->id();
             $table->boolean('state')->default(1);
-            $table->timestamps();
-            
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
+
             $table->foreignId('type_user_id')
             ->references('id')
             ->on('Type_users')

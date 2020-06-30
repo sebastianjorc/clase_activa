@@ -18,7 +18,8 @@ class CreateNotesTable extends Migration
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('title');
             $table->text('description');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

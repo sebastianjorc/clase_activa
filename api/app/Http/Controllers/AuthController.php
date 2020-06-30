@@ -1,49 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Route;
 use Validator;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Laravel\Passport\Client;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){ 
-            $user = Auth::user(); 
-            $success['token'] =  $user->createToken('Password Token')->accessToken; 
+        if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
+            $user = Auth::user();
+            $success['token'] =  $user->createToken('Password Token')->accessToken;
             $success['name'] = $user->name;
             $success['username'] = $user->username;
-            return response()->json($success, 200); 
-        } 
-        else{ 
-            return response()->json(['error'=>'Unauthorised'], 401); 
+            return response()->json($success, 200);
+        }
+        else{
+            return response()->json(['error'=>'Unauthorised'], 401);
         }
     }
-    
+
     public function logout()
     {
         Auth::user()->tokens->each(function ($token, $key) {
             $token->delete();
         });
-        
+
         return response()->json(['message' => 'Desconectado'], 200);
     }
 
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [ 
-            'name' => 'required', 
-            'username' => 'required|email|unique:users', 
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'username' => 'required|email|unique:users',
             'password' => 'required',
         ]);
 
-        if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
         }
 
         $input = $request->all();
@@ -53,13 +52,13 @@ class AuthController extends Controller
         $success['token'] = $user->createToken('MiApp')->accessToken;
         $success['name'] = $user->name;
 
-        return response()->json($success, 200); 
+        return response()->json($success, 200);
     }
 
-    public function details() 
-    { 
-        $user = Auth::user(); 
-        return response()->json($user, 200); 
+    public function details()
+    {
+        $user = Auth::user();
+        return response()->json($user, 200);
     }
 
 
@@ -78,7 +77,7 @@ class AuthController extends Controller
     //         return json_decode((string) $response->getBody(), true);
 
     //     } catch (\GuzzleHttp\Exception\BadResponseException $e) {
-            
+
     //         if ($e->getCode() === 400) {
     //             return response()->json(['message' => 'Las credenciales son incorrectas. Por favor intente nuevamente'], $e->getCode());
     //         }

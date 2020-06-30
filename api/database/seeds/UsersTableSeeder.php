@@ -13,18 +13,20 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //factory(App\User::class, 20)->create();
-        DB::table('users')->insert([
-            'id' => 1,
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'username' => 'admin@example.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('secret'),
-            'created_at' => now(),
-            'updated_at' => now(),
-            'type_user_id' =>(1),
-            'institution_id' =>(1)
-        ]);
+        DB::table('users')->insert(array (
+            0 =>
+            array (
+                'id' => '1',
+                'name' => 'Admin',
+                'email' => 'admin@example.com',
+                'username' => 'admin@example.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('secret'),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'type_user_id' =>('1'),
+                'institution_id' =>('1')
+            ),
+        ));
     }
 }

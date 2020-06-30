@@ -15,12 +15,13 @@ class Region extends Migration
     {
         Schema::create('Regions', function (Blueprint $table) {
 
-            $table->integer('id',1);
+            $table->id();
             $table->smallInteger('numeration')->lenght(2);
             $table->string('name')->lenght(30);
             $table->char('abbreviation')->lenght(4);
             $table->string('capital')->lenght(30);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
 
         });
 

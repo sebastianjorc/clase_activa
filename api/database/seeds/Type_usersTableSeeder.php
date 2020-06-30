@@ -12,35 +12,41 @@ class Type_usersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Type_users')->insert([
-            'id' => '1',
-            'name_category' => 'Admin master',
-            'created_at' => now(),
-            'updated_at' => now()
-        ],
-        [
-            'id' => '2',
-            'name_category' => 'Admin institucion',
-            'created_at' => now(),
-            'updated_at' => now()
-        ],
-        [
-            'id' => '3',
-            'name_category' => 'Alumno',
-            'created_at' => now(),
-            'updated_at' => now()
-        ],
-        [
-            'id' => '4',
-            'name_category' => 'Profesor',
-            'created_at' => now(),
-            'updated_at' => now()
-        ],
-        [
-            'id' => '5',
-            'name_category' => 'Apoderado',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        DB::table('Type_users')->insert(array (
+            0 =>
+            array (
+                'id' => '1',
+                'name_category' => 'Admin master',
+                'created_at' => now(),
+                'updated_at' => now()
+            ),
+            1 =>
+            array (
+                'id' => '2',
+                    'name_category' => 'Admin institucion',
+                    'created_at' => now(),
+                    'updated_at' => now()
+            ),
+            2 =>
+            array (
+                'id' => '3',
+                'name_category' => 'Alumno',
+                'created_at' => now(),
+                'updated_at' => now()
+            ),
+            3 =>
+            array (
+                'id' => '4',
+                'name_category' => 'Profesor',
+                'created_at' => now(),
+                'updated_at' => now()),
+            4 =>
+            array (
+                'id' => '5',
+                'name_category' => 'Apoderado',
+                'created_at' => now(),
+                'updated_at' => now()
+            ),
+        ));
     }
 }
