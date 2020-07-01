@@ -96,6 +96,111 @@ const routes = [
     ]
   },
   {
+    path: '/',
+    component: Admin,
+    redirect: 'dashboardadmininstitute',
+    meta: {
+      visible: true,
+      name: 'Inicio',
+      icon: 'home'
+    },
+    children: [
+      {
+        path: 'dashboard_admin_institute',
+        component: () => import('@/views/DashboardAdminInstitute'),
+        meta: {
+          visible: true,
+          name: 'Dashboard',
+          icon: 'view-dashboard',
+          category: 'menu'
+        }}
+    ]
+  },
+  {
+    path: '/',
+    component: Admin,
+    redirect: 'dashboardadminmaster',
+    meta: {
+      visible: true,
+      name: 'Inicio',
+      icon: 'home'
+    },
+    children: [
+      {
+        path: 'dashboardadminmaster',
+        component: () => import('@/views/DashboardAdminMaster'),
+        meta: {
+          visible: true,
+          name: 'Dashboard',
+          icon: 'view-dashboard',
+          category: 'menu'
+        }}
+    ]
+  },
+  {
+    path: '/',
+    component: Admin,
+    redirect: 'dashboardattorney',
+    meta: {
+      visible: true,
+      name: 'Inicio',
+      icon: 'home'
+    },
+    children: [
+      {
+        path: 'dashboardattorney',
+        component: () => import('@/views/DashboardAttorney'),
+        meta: {
+          visible: true,
+          name: 'Dashboard',
+          icon: 'view-dashboard',
+          category: 'menu'
+        }}
+    ]
+  },
+  {
+    path: '/',
+    component: Admin,
+    redirect: 'dashboardprofessor',
+    meta: {
+      visible: true,
+      name: 'Inicio',
+      icon: 'home'
+    },
+    children: [
+      {
+        path: 'dashboardprofessor',
+        component: () => import('@/views/DashboardProfessor'),
+        meta: {
+          visible: true,
+          name: 'Dashboard',
+          icon: 'view-dashboard',
+          category: 'menu'
+        }}
+    ]
+  },
+  {
+    path: '/',
+    component: Admin,
+    redirect: 'dashboardstudent',
+    meta: {
+      visible: true,
+      name: 'Inicio',
+      icon: 'home'
+    },
+    children: [
+      {
+        path: 'dashboardstudent',
+        component: () => import('@/views/DashboardStudent'),
+        meta: {
+          visible: true,
+          name: 'Dashboard',
+          icon: 'view-dashboard',
+          category: 'menu'
+        }}
+    ]
+  },
+  {
     path: '/login',
     component: () => import('@/views/Login'),
     meta: {

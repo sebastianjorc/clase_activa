@@ -1,5 +1,10 @@
 <?php
 
+
+use Illuminate\Support\Facades\Route;
+use App\User;
+use App\Role;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,4 +16,15 @@
 |
 */
 
-Route::view('/{any}', 'index')->where('any', '.*');
+//Route::view('/{any}', 'index')->where('any', '.*');
+Route::view('/', 'index');
+
+Route::get('/test',function(){
+
+    $user = User::find(1);
+
+    $user->roles()->attach([1,3]);
+
+    return $user->roles;
+
+});

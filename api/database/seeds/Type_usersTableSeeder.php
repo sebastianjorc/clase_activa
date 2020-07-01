@@ -17,6 +17,7 @@ class Type_usersTableSeeder extends Seeder
             array (
                 'id' => '1',
                 'name_category' => 'Admin master',
+                'slug' => 'admin_master',
                 'created_at' => now(),
                 'updated_at' => now()
             ),
@@ -24,6 +25,7 @@ class Type_usersTableSeeder extends Seeder
             array (
                 'id' => '2',
                     'name_category' => 'Admin institucion',
+                    'slug' => 'admin_institution',
                     'created_at' => now(),
                     'updated_at' => now()
             ),
@@ -31,6 +33,7 @@ class Type_usersTableSeeder extends Seeder
             array (
                 'id' => '3',
                 'name_category' => 'Alumno',
+                'slug' => 'alumno',
                 'created_at' => now(),
                 'updated_at' => now()
             ),
@@ -38,12 +41,14 @@ class Type_usersTableSeeder extends Seeder
             array (
                 'id' => '4',
                 'name_category' => 'Profesor',
+                'slug' => 'profesor',
                 'created_at' => now(),
                 'updated_at' => now()),
             4 =>
             array (
                 'id' => '5',
                 'name_category' => 'Apoderado',
+                'slug' => 'Apoderado',
                 'created_at' => now(),
                 'updated_at' => now()
             ),

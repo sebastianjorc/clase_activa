@@ -20,6 +20,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function roles(){
+        return $this->belongsToMany('App\Role')->withTimesTamps();
+    }
+
     public function parts()
     {
         return $this->hasMany('App\Part');

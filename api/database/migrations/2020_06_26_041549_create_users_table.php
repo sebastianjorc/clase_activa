@@ -30,16 +30,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-
-            $table->foreignId('type_user_id')
-            ->references('id')
-            ->on('type_users')
-            ->onDelete('cascade');
-
-            $table->foreignId('institution_id')
-            ->references('id')
-            ->on('Institutions')
-            ->onDelete('cascade');
         });
     }
 

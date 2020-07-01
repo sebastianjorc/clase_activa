@@ -26,6 +26,32 @@ class InstitutionsTableSeeder extends Seeder
                 'type_institution_id' =>(1),
                 'commune_id' =>(1)
             ),
+            1 =>
+            array (
+                'id' => '2',
+                'rut' => '00',
+                'name' => 'colegio clase activa',
+                'business_name' => 'web',
+                'direction' => 'web',
+                'phone' => '0',
+                'created_at' => now(),
+                'updated_at' => now(),
+                'type_institution_id' =>(2),
+                'commune_id' =>(1)
+            ),
+            2 =>
+            array (
+                'id' => '3',
+                'rut' => '0000',
+                'name' => 'clase activa',
+                'business_name' => 'web',
+                'direction' => 'web',
+                'phone' => '0',
+                'created_at' => now(),
+                'updated_at' => now(),
+                'type_institution_id' =>(3),
+                'commune_id' =>(1)
+            ),
         ));
     }
 }

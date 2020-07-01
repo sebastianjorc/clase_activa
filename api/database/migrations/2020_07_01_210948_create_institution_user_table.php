@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TypeUser extends Migration
+class CreateInstitutionUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class TypeUser extends Migration
      */
     public function up()
     {
-        Schema::create('type_users', function (Blueprint $table) {
+        Schema::create('institution_user', function (Blueprint $table) {
             $table->id();
-            $table->string('name_category')->unique();
-            $table->string('slug')->unique();
-            $table->string('description')->nullable();
+            $table->foreignId('institution_id')->references('id')->on('institutions')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
@@ -30,6 +29,6 @@ class TypeUser extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Type_users');
+        Schema::dropIfExists('institution_user');
     }
 }
