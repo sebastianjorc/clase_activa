@@ -25,6 +25,7 @@ class CreatePermissionTables extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('guard_name');
+            $table->string('slug')->unique();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

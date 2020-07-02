@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    //Es desde aquí
-    //En from here
+
     protected $fillable = [
-        'name', 'description','guard_name'
+        'name', 'description','guard_name', 'slug',
     ];
 
     public function users(){
         return $this->belongsToMany('App\User')->withTimesTamps();
+    }
+    public function permissions(){
+        return $this->belongsToMany('App\Permission')->withTimesTamps();
     }
 
 }

@@ -21,6 +21,7 @@ Vue.use(Buefy)
 ApiService.init();
 
 const whiteList = ['/login'] // no redirect whitelist
+const whiteListtest = ['/test'] // no redirect whitelist
 
 router.beforeEach(async(to, from, next) => {
   // determine whether the user has logged in
@@ -38,7 +39,15 @@ router.beforeEach(async(to, from, next) => {
         next({ path: '/login' })
       }
     }
-  } else {
+  } 
+  else if (to.path === '/test'){    
+    if (whiteListtest.indexOf(to.path) !== -1) {
+      next()
+    } else {
+      next({ path: '/Test' })
+    }
+  }
+  else {
     if (whiteList.indexOf(to.path) !== -1) {
       next()
     } else {

@@ -19,12 +19,6 @@ use App\Role;
 //Route::view('/{any}', 'index')->where('any', '.*');
 Route::view('/', 'index');
 
-Route::get('/test',function(){
+//Route::resource('/home', 'HomeController@index')->name('home');
 
-    $user = User::find(1);
-
-    $user->roles()->attach([1,3]);
-
-    return $user->roles;
-
-});
+Route::resource('/role', 'RoleController')->names('role');

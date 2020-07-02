@@ -206,6 +206,13 @@ const routes = [
     meta: {
       visible: false
     }
+  },
+  {
+    path: '/test',
+    component: () => import('@/views/Test'),
+    meta: {
+      visible: false
+    }
   }
 ]
 
