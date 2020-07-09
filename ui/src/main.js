@@ -13,6 +13,7 @@ import { CHECK_AUTH, LOGOUT } from "./store/actions.type";
 import ApiService from "./common/api";
 import JwtService from './common/jwt';
 
+
 Vue.config.productionTip = false
 
 Vue.use(VueMeta)

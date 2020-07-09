@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Admin from '@/layouts/Admin'
+import AdminMasterLayout from '@/layouts/AdminMasterLayout'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    component: Admin,
+    component: AdminMasterLayout,
     redirect: 'dashboard',
     meta: {
       visible: true,
@@ -23,6 +24,16 @@ const routes = [
           name: 'Dashboard',
           icon: 'view-dashboard',
           category: 'menu'
+        }
+      },
+      {
+        path: 'niveles',
+        component: () => import('@/views/Niveles'),
+        meta: {
+          visible: true,
+          name: 'Niveles',
+          icon: 'archive',
+          category: 'Menu'
         }
       },
       {
@@ -106,7 +117,7 @@ const routes = [
     },
     children: [
       {
-        path: 'dashboard_admin_institute',
+        path: 'dashboardadmininstitute',
         component: () => import('@/views/DashboardAdminInstitute'),
         meta: {
           visible: true,

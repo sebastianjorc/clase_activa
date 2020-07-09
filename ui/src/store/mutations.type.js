@@ -10,8 +10,8 @@ export const SET_SELECTED_ROW = "setSelectedRow";
 export const TOGGLE_ADD_FORM= "toggleAddForm";
 export const TOGGLE_EDIT_FORM = "toggleEditForm";
 
-export const SET_PARTS = "setParts";
-export const SET_PART = "setPart";
+export const SET_NIVELS = "setNivels";
+export const SET_NIVEL = "setNivel";
 
 export const SET_NOTES = "setNotes";
 export const SET_NOTE = "setNote";
