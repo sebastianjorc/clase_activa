@@ -19,11 +19,6 @@ class CreateCoursesTable extends Migration
             $table->boolean('state')->default(1);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-
-            $table->foreignId('academic_level_id')
-            ->references('id')
-            ->on('Academic_levels')
-            ->onDelete('cascade');
         });
     }
 

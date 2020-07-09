@@ -24,16 +24,17 @@ class UserController extends Controller
         'password'=> 'min:6'
     ];
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $users = User::paginate();
-
         return response()->json($users, 200);
+    }
+
+
+    public function getlist(){
+        $users = User::all();
+        return response()->json($users, 200);;
     }
 
     public function user()
@@ -49,24 +50,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [ 
-            'name' => 'required', 
-            'username' => 'required|email|unique:users', 
+        //Agregar más variables necesarias para el usuario
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'username' => 'required|email|unique:users',
             'password' => 'required',
         ]);
 
-        if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
         }
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
 
-        //$success['token'] = 
+        //$success['token'] =
         $user->createToken('MiApp')->accessToken;
         //$success['name'] = $user->name;
-        //return response()->json(['success'=>$success], 200); 
+        //return response()->json(['success'=>$success], 200);
 
         return response()->json($user, 201);
     }
