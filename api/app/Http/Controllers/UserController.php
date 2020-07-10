@@ -34,7 +34,7 @@ class UserController extends Controller
 
     public function getlist(){
         $users = User::all();
-        return response()->json($users, 200);;
+        return response()->json($users, 200);
     }
 
     public function user()

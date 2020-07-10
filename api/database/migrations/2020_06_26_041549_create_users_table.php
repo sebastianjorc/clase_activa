@@ -17,10 +17,12 @@ class CreateUsersTable extends Migration
 
             $table->id();
             $table->string('name');
+            $table->string('first_lastname')->nullable();
+            $table->string('second_lastname')->nullable();
             $table->string('avatar')->nullable();
             $table->string('email')->unique();
             $table->string('username')->unique();
-            $table->string('password');
+            $table->string('password')->default(Hash::make('secret'));
             $table->string('rut')->unique()->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();

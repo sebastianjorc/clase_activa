@@ -2,27 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Part;
+use App\AcademicLevel;
 use Illuminate\Http\Request;
 
-class PartController extends Controller
+class AcademicLevelController extends Controller
 {
-    protected $rules = [
-        'name' => 'required|min:2|max:255',
-        'description' => 'required|min:2|max:255',
-        'active' => 'boolean'
-    ];
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //TODO obtener los repuestos segun el usuario
-        $parts = Part::paginate();
-        return response()->json($parts, 200);
+        //TODO obtener los niveles academicos segun el usuario
+
+        $academicLevels = AcademicLevel::all();
+        return response()->json($academicLevels, 200);
     }
 
     /**
@@ -33,12 +30,12 @@ class PartController extends Controller
      */
     public function store(Request $request)
     {
-        //TODO guardar los repuestos segun el usuario
+        //TODO guardar los niveles academicos segun el usuario
 
         $request->validate($this->rules);
         $input = $request->all();
-        $part = Part::create($input);
-        return response()->json($part, 200);
+        $AcademicLevel = AcademicLevel::create($input);
+        return response()->json($AcademicLevel, 200);
     }
 
     /**
@@ -49,8 +46,8 @@ class PartController extends Controller
      */
     public function show($id)
     {
-        $part = Part::find($id);
-        return response()->json($part, 200);
+        $AcademicLevel = AcademicLevel::find($id);
+        return response()->json($AcademicLevel, 200);
     }
 
     /**
@@ -63,9 +60,9 @@ class PartController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate($this->rules);
-        $part = Part::find($id);
-        $part->update($request->all());
-        return response()->json($part, 200);
+        $AcademicLevel = AcademicLevel::find($id);
+        $AcademicLevel->update($request->all());
+        return response()->json($AcademicLevel, 200);
     }
 
     /**
@@ -76,11 +73,11 @@ class PartController extends Controller
      */
     public function destroy($id)
     {
-        $part = Part::find($id);
-        if ($part != null){
-            $part->delete();
+        $AcademicLevel = AcademicLevel::find($id);
+        if ($AcademicLevel != null){
+            $AcademicLevel->delete();
             return response()->noContent();
         }
-        return response()->json(['message' => 'El repuesto no existe'], 500);
+        return response()->json(['message' => 'El nivel academico no existe'], 500);
     }
 }

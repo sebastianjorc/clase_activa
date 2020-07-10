@@ -43,7 +43,7 @@ class InstitutionsTableSeeder extends Seeder
             array (
                 'id' => '3',
                 'rut' => '0000',
-                'name' => 'clase activa',
+                'name' => 'otec clase activa',
                 'business_name' => 'web',
                 'direction' => 'web',
                 'phone' => '0',
