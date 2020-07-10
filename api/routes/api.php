@@ -22,6 +22,7 @@ AL PARECER DEBIERA SER POSIBLE*/
 
 
 
+//Route::resource('/academic_levels',  'AcademicLevelController');
 Route::resource('/asignatures', 'AsignatureController');
 Route::get('asignatures/getlist', 'AsignatureController@getlist');
 Route::apiResource('academic_levels', 'AcademicLevelController');

@@ -16,7 +16,7 @@ const state = {
 const actions = {
   [ADD_NIVEL](context, nivel) {
     return new Promise((resolve, reject) => {
-      ApiService.post('nivels', nivel)
+      ApiService.post('academic_levels', nivel)
         .then(({ data }) => {
           context.commit(SET_NIVEL, data);
           resolve(data);
@@ -29,7 +29,7 @@ const actions = {
   },
   [GET_NIVELS](context, params) {
     return new Promise((resolve, reject) => {
-      ApiService.query('nivels', params)
+      ApiService.query('academic_levels', params)
         .then(({ data }) => {
           context.commit(SET_NIVELS, data);
           resolve(data);

@@ -7,6 +7,9 @@ export const CHECK_AUTH = "checkAuth";
 export const ADD_PART = "addPart";
 export const GET_PARTS = "getParts";
 
+export const ADD_NIVEL = "addNivel";
+export const GET_NIVELS = "getNivels";
+
 export const ADD_VEHICLE = "addVehicle";
 export const GET_VEHICLES = "getVehicles";
 

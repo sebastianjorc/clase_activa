@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AcademicLevel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AcademicLevelController extends Controller
 {
@@ -18,7 +19,7 @@ class AcademicLevelController extends Controller
     {
         //TODO obtener los niveles academicos segun el usuario
 
-        $academicLevels = AcademicLevel::all();
+        $academicLevels = AcademicLevel::paginate();
         return response()->json($academicLevels, 200);
     }
 

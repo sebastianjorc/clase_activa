@@ -4,9 +4,6 @@
     <b-field custom-class="is-size-7-mobile" horizontal label="Nombre">
       <b-input custom-class="is-size-7-mobile" v-model="form.name" />
     </b-field>
-    <b-field custom-class="is-size-7-mobile" horizontal label="Descripción">
-      <b-input custom-class="is-size-7-mobile" v-model="form.description" />
-    </b-field>
     <b-field grouped position="is-right">
       <b-field>
         <b-button @click="cancel" class="is-size-7-mobile" label="Cancelar" />
@@ -25,7 +22,6 @@ export default {
     return {
       form: {
         name: '',
-        description: ''
       }
     }
   },

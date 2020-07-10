@@ -22,6 +22,7 @@ export default new Vuex.Store({
     table,
     auth,
     part,
-    note
+    note,
+    nivel
   }
 })

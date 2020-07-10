@@ -1,6 +1,6 @@
 <template>
-  <div id="Nivel">
-    <b-tabs type="is-boxed" expanded>
+  <div id="Nivel"  >
+    <b-tabs type="is-boxed" expanded >
       
         <st-toolbar 
           :add-item="AddNivel"
@@ -10,7 +10,7 @@
         <add-nivel v-if="showAddForm" />
         <edit-nivel v-if="showEditForm" />
         <st-table 
-          :columns="Nivel_COLUMNS"
+          :columns="NIVELS_COLUMNS"
           :data="Nivel.data"
           :total="Nivel.total"
           :current="Nivel.current_page"
@@ -25,9 +25,9 @@
   import StTable from '@/components/StTable'
   import AddNivel from './AddNivel'
   import EditNivel from './EditNivel'
-  import { Nivel_COLUMNS, STOCKS_COLUMNS } from './nivel.table'
+  import { NIVELS_COLUMNS, STOCKS_COLUMNS } from './nivel.table'
   import { TOGGLE_ADD_FORM, TOGGLE_EDIT_FORM } from '@/store/mutations.type'
-  import { GET_Nivel } from '@/store/actions.type'
+  import { GET_NIVELS } from '@/store/actions.type'
   import { mapState, mapGetters } from 'vuex'
   export default {
     components: {
@@ -38,13 +38,13 @@
     },
     data() {
       return {
-        Nivel_COLUMNS: Nivel_COLUMNS,
-        STOCKS_COLUMNS: STOCKS_COLUMNS,
+        NIVELS_COLUMNS: NIVELS_COLUMNS,
+       // STOCKS_COLUMNS: STOCKS_COLUMNS,
       }
     },
     computed: {
       ...mapState({
-        Nivel: state => state.part.all,
+        Nivel: state => state.nivel.all,
       }),
       ...mapGetters(['showAddForm', 'showEditForm'])
     },
@@ -55,12 +55,11 @@
       EditNivel() {
         this.$store.commit(TOGGLE_EDIT_FORM)
       },
-      removeNivel() {
-        
+      removeNivel() {        
       }
     },
     created() {
-      this.$store.dispatch(GET_Nivel, { page: 1 })
+      this.$store.dispatch(GET_NIVELS, { page: 1 })
     },
   }
 </script>

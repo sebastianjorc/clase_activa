@@ -1,4 +1,4 @@
-export const PARTS_COLUMNS = [
+export const NIVELS_COLUMNS = [
   {
     field: 'id',
     label: 'ID',
@@ -8,11 +8,6 @@ export const PARTS_COLUMNS = [
   {
     field: 'name',
     label: 'Nombre',
-    searchable: true
-  },
-  {
-    field: 'description',
-    label: 'Descripción',
     searchable: true
   },
   {

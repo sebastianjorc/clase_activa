@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="columns is-centered">
     <nav class="rows navbar is-fixed-top">  
       <div class="hero is-black has-text-right sm">
         <label style="margin-right:5%;">
@@ -62,7 +62,7 @@
       </b-navbar>
     </nav>
     <div 
-      class="column"
+      class="column "
       :class="[ isHidden ? 'is-10' : 'is-12' ]"
     >
       <router-view class="views"/>
