@@ -3,7 +3,10 @@
     hoverable
     narrowed
     paginated
+<<<<<<< HEAD
     bordered
+=======
+>>>>>>> maintpro
     focusable
     backend-pagination
     :total="total"

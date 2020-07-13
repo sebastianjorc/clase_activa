@@ -16,16 +16,22 @@ const ApiService = {
     ] = `Bearer ${JwtService.getToken()}`;
   },
 
-  query(resource, params) {
-    return Vue.axios.get(resource, params).catch(error => {
+  async query(resource, params) {
+    try {
+      return Vue.axios.get(resource, params);
+    }
+    catch (error) {
       throw new Error(`ApiService ${error}`);
-    });
+    }
   },
 
-  get(resource, slug = "") {
-    return Vue.axios.get(`${resource}/${slug}`).catch(error => {
+  async get(resource, slug = "") {
+    try {
+      return Vue.axios.get(`${resource}/${slug}`);
+    }
+    catch (error) {
       throw new Error(`ApiService ${error}`);
-    });
+    }
   },
 
   post(resource, params) {
@@ -40,10 +46,13 @@ const ApiService = {
     return Vue.axios.put(`${resource}`, params);
   },
 
-  delete(resource) {
-    return Vue.axios.delete(resource).catch(error => {
+  async delete(resource, slug) {
+    try {
+      return Vue.axios.delete(`${resource}/${slug}`);
+    }
+    catch (error) {
       throw new Error(`ApiService ${error}`);
-    });
+    }
   }
 };
 

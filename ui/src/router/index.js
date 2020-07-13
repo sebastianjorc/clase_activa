@@ -51,8 +51,33 @@ const routes = [
         component: () => import('@/views/Sales'),
         meta: {
           visible: true,
+<<<<<<< HEAD
           name: 'Ventas',
           icon: 'cash-usd-outline'
+=======
+          name: 'Cotizaciones',
+          icon: 'file-document',
+          category: 'Menu'
+        }
+      },
+      {
+        path: 'sales',
+        component: () => import('@/views/Sales'),
+        meta: {
+          visible: true,
+          name: 'Ventas',
+          icon: 'cash-usd-outline'
+        }
+      },
+      {
+        path: 'imports',
+        component: () => import('@/views/Imports'),
+        meta: {
+          visible: true,
+          name: 'Importaciones',
+          icon: 'airplane',
+          category: 'Menu'
+>>>>>>> maintpro
         }
       },
       {

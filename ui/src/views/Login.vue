@@ -53,6 +53,10 @@ export default {
           this.$store.dispatch(LOGIN, this.form)
             .then(() => {
               this.$router.push({ path: '/' })
+              this.$buefy.toast.open({
+                message: 'Bienvenido',
+                type: 'is-success'
+              })
             })
       }
     }

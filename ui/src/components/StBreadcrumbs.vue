@@ -31,8 +31,8 @@ export default {
 </script>
 
 <style lang="scss">
-a.is-active.router-link-active {
-  color: #363636;
-}
+// a.is-active.router-link-active {
+//   color: #363636;
+// }
   
 </style>

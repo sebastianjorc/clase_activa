@@ -4,13 +4,18 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --port 3000",
-    "build": "vue-cli-service build"
+    "build": "rm -rf ../api/public/static/{js,css,img} && rm -f ../api/resources/views/index.blade.php && vue-cli-service build --dest ../api/public --no-clean && mv ../api/public/index.html ../api/resources/views/index.blade.php"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "buefy": "^0.8.18",
+    "cleave.js": "^1.6.0",
     "core-js": "^3.6.4",
+<<<<<<< HEAD
     "laravel-permission-to-vuejs": "^2.0.5",
+=======
+    "vee-validate": "^3.3.3",
+>>>>>>> maintpro
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-meta": "^2.3.3",

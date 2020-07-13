@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta
@@ -263,3 +264,6 @@
         <script src=/static/js/app.18adafeb.js></script>
     </body>
 </html>
+=======
+<!DOCTYPE html><html lang=es><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><title>ui</title><link href=/css/chunk-0bbfc7d4.71f5c74c.css rel=prefetch><link href=/js/chunk-0bbfc7d4.4d4cf0cb.js rel=prefetch><link href=/js/chunk-2b61bd7c.4e2cf25e.js rel=prefetch><link href=/js/chunk-2d0b3289.449d9e34.js rel=prefetch><link href=/js/chunk-2d0ba8b9.222e2aa3.js rel=prefetch><link href=/js/chunk-2d0cbcb5.840141dd.js rel=prefetch><link href=/js/chunk-2d0d63f1.0746839c.js rel=prefetch><link href=/js/chunk-2d0d7a48.b84656db.js rel=prefetch><link href=/js/chunk-2d207b08.5de26333.js rel=prefetch><link href=/js/chunk-2d2263b4.ac68433a.js rel=prefetch><link href=/js/chunk-2d22c4ff.65383ebc.js rel=prefetch><link href=/js/chunk-2d22cce3.42e2cfe4.js rel=prefetch><link href=/js/chunk-39203ca2.af9d7676.js rel=prefetch><link href=/js/chunk-41aaab46.83ca30e4.js rel=prefetch><link href=/css/app.2fffa43d.css rel=preload as=style><link href=/css/chunk-vendors.9a091c43.css rel=preload as=style><link href=/js/app.950b062c.js rel=preload as=script><link href=/js/chunk-vendors.77d91427.js rel=preload as=script><link href=/css/chunk-vendors.9a091c43.css rel=stylesheet><link href=/css/app.2fffa43d.css rel=stylesheet></head><body><noscript><strong>We're sorry but ui doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.77d91427.js></script><script src=/js/app.950b062c.js></script></body></html>
+>>>>>>> maintpro

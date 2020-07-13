@@ -7,9 +7,10 @@ import router from './router'
 import store from './store'
 
 import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
+// import 'buefy/dist/buefy.css'
 
 import { CHECK_AUTH, LOGOUT } from "./store/actions.type";
+import { DEFAULT_FORM_STATE } from './store/mutations.type';
 import ApiService from "./common/api";
 import JwtService from './common/jwt';
 
@@ -21,11 +22,14 @@ Vue.use(Buefy)
 
 ApiService.init();
 
+<<<<<<< HEAD
 const whiteList = ['/login'] // no redirect whitelist
 const whiteListtest = ['/test'] // no redirect whitelist
+=======
+const whiteList = ['/login']
+>>>>>>> maintpro
 
 router.beforeEach(async(to, from, next) => {
-  // determine whether the user has logged in
   const hasToken = JwtService.getToken()
 
   if (hasToken) {
@@ -34,6 +38,7 @@ router.beforeEach(async(to, from, next) => {
     } else {
       try {
         await store.dispatch(CHECK_AUTH)
+        store.commit(DEFAULT_FORM_STATE)
         next()
       } catch (error) {
         await store.dispatch(LOGOUT)
