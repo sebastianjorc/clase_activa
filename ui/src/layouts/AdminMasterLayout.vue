@@ -17,16 +17,16 @@
             </b-navbar-item>
         </template>
         <template class="navbar-menu" slot="end"  >
-          <b-navbar-item href="#" >
+          <b-navbar-item href="/niveles" >
               Niveles
           </b-navbar-item>
-          <b-navbar-item href="#">
+          <b-navbar-item href="/cursos">
               Cursos
           </b-navbar-item>
-          <b-navbar-item href="#">
+          <b-navbar-item href="/asignaturas">
               Asignaturas
           </b-navbar-item>
-          <b-navbar-item href="#">
+          <b-navbar-item href="/materias">
               Materias
           </b-navbar-item>
           <b-navbar-dropdown label="MTC">
@@ -47,15 +47,15 @@
               </b-navbar-item>
           </b-navbar-dropdown>
           
-          <b-navbar-item href="#">
+          <b-navbar-item href="/estadisticas">
               Estadisticas
           </b-navbar-item>
           
-          <b-navbar-item href="#">
+          <b-navbar-item href="/nosotros">
               Quienes somos
           </b-navbar-item>
           
-          <b-navbar-item href="#" style="margin-right:8%;">
+          <b-navbar-item href="/contacto" style="margin-right:8%;">
               Contacto
           </b-navbar-item>
         </template>    

@@ -1,11 +1,8 @@
 <template>
   <form class="box">
-    <h1 class="subtitle">Editar Producto</h1>
+    <h1 class="subtitle">Editar Nivel académico</h1>
     <b-field custom-class="is-size-7-mobile" horizontal label="Nombre">
       <b-input custom-class="is-size-7-mobile" v-model="form.name" />
-    </b-field>
-    <b-field custom-class="is-size-7-mobile" horizontal label="Descripción">
-      <b-input custom-class="is-size-7-mobile" v-model="form.description" />
     </b-field>
     <b-field grouped position="is-right">
       <b-field>
@@ -24,8 +21,7 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      name: '',
-      description: ''
+      name: ''
     }
   },
   methods: {

@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AcademicLevelController extends Controller
 {
-
+    protected $rules = [
+        'name' => 'required|min:2|max:255',
+        'active' => 'boolean'
+    ];
     /**
      * Display a listing of the resource.
      *
