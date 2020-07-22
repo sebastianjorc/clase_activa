@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d22cce3"],{f597:function(e,t,a){"use strict";a.r(t);var s=function(){var e=this,t=e.$createElement,a=e._self._c||t;return a("div",{attrs:{id:"companies"}},[a("b-tabs",{attrs:{type:"is-boxed",expanded:""}},[a("b-tab-item",{attrs:{label:"Empresas"}}),a("b-tab-item",{attrs:{label:"Proveedores"}})],1)],1)},n=[],r={},l=r,b=a("2877"),c=Object(b["a"])(l,s,n,!1,null,null,null);t["default"]=c.exports}}]);
+//# sourceMappingURL=chunk-2d22cce3.42e2cfe4.js.map

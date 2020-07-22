@@ -7,6 +7,9 @@
     <b-field custom-class="is-size-7-mobile" horizontal label="Descripción">
       <b-input custom-class="is-size-7-mobile" v-model="form.description" />
     </b-field>
+    <b-field custom-class="is-size-7-mobile" horizontal label="Activo">
+      <b-switch :value="form.active" v-model="form.active" />
+    </b-field>
     <b-field grouped position="is-right">
       <b-field>
         <b-button @click="cancel" class="is-size-7-mobile" label="Cancelar" />
@@ -25,7 +28,8 @@ export default {
     return {
       form: {
         name: '',
-        description: ''
+        description: '',
+        active: true
       }
     }
   },
@@ -37,6 +41,13 @@ export default {
       this.$store.dispatch(ADD_PART, this.form)
         .then((response) => {
           this.$store.commit(TOGGLE_ADD_FORM)
+<<<<<<< HEAD
+=======
+          this.$buefy.toast.open({
+            message: 'Producto agregado con éxito',
+            type: 'is-success'
+          })
+>>>>>>> maintpro
         })
     }
   },

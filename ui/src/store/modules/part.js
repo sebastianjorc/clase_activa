@@ -1,44 +1,69 @@
 import ApiService from '@/common/api';
-import { 
+import {
   SET_PARTS,
+<<<<<<< HEAD
   SET_PART, 
   SET_ERROR 
+=======
+  SET_PART,
+  UPDATE_PART,
+  SET_ERROR
+>>>>>>> maintpro
 } from '../mutations.type';
-import { ADD_PART, GET_PARTS } from '../actions.type';
+import {
+  ADD_PART,
+  EDIT_PART,
+  REMOVE_PART,
+  GET_PARTS
+} from '../actions.type';
 
 const state = {
   errors: null,
-  showAddPart: false,
-  showEditPart: false,
   all: []
 }
 
+const getters = {
+  getParts(state) {
+    return state.all;
+  }
+}
+
 const actions = {
-  [ADD_PART](context, part) {
-    return new Promise((resolve, reject) => {
-      ApiService.post('parts', part)
-        .then(({ data }) => {
-          context.commit(SET_PART, data);
-          resolve(data);
-        })
-        .catch(({ response }) => {
-          context.commit(SET_ERROR, response.data.errors);
-          reject(response);
-        })
-    })
-  },
   [GET_PARTS](context, params) {
-    return new Promise((resolve, reject) => {
-      ApiService.query('parts', params)
-        .then(({ data }) => {
-          context.commit(SET_PARTS, data);
-          resolve(data);
-        })
-        .catch(({ response }) => {
-          context.commit(SET_ERROR, response.data.errors);
-          reject(response);
-        })
-    })
+    ApiService.query('parts', params)
+      .then(({ data }) => {
+        context.commit(SET_PARTS, data);
+      })
+      .catch(({ response }) => {
+        context.commit(SET_ERROR, response);
+      });
+  },
+  [ADD_PART](context, part) {
+    ApiService.post('parts', part)
+      .then(({ data }) => {
+        context.commit(SET_PART, data);
+      })
+      .catch(({ response }) => {
+        context.commit(SET_ERROR, response);
+      });
+  },
+  [EDIT_PART](context, part) {
+    ApiService.update('parts', part.id, part)
+      .then(({ data }) => {
+        context.commit(UPDATE_PART, data);
+      })
+      .catch(({ response }) => {
+        context.commit(SET_ERROR, response);
+      });
+  },
+  [REMOVE_PART](context, id) {
+    ApiService.delete('parts', id)
+      .then(({ data }) =>{ 
+        context.commit(REMOVE_PART, id);
+      })
+      .catch(({ response }) => {
+        context.commit(SET_ERROR, response);
+      });
   }
 }
 
@@ -46,8 +71,17 @@ const mutations = {
   [SET_PART](state, part) {
     state.all.data = [part].concat(state.all.data);
   },
+  [UPDATE_PART](state, part) {
+    state.all.data = [
+      part,
+      ...state.all.data.filter(item => item.id !== part.id)
+    ];
+  },
+  [REMOVE_PART](state, id) {
+    state.all.data.splice(state.all.data.indexOf(id), 1);
+  },
   [SET_PARTS](state, parts) {
-    state.all = parts
+    state.all = parts;
   },
   [SET_ERROR](state, error) {
     state.errors = error;
@@ -56,6 +90,7 @@ const mutations = {
 
 export default {
   state,
+  getters,
   actions,
   mutations
 }

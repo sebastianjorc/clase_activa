@@ -14,13 +14,8 @@ class User extends Authenticatable
     use Notifiable, HasRoles, HasApiTokens;
     use LaravelPermissionToVueJS;
 
-    protected $fillable = [
-        'name', 'username', 'email', 'password',
-    ];
-
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $fillable = ['name', 'username', 'email', 'password',];
+    protected $hidden   = ['password', 'remember_token',];
 
     public function roles(){
         return $this->belongsToMany('App\Role')->withTimesTamps();

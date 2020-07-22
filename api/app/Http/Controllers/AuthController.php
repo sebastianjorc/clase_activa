@@ -12,11 +12,12 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
+        if(Auth::attempt(['username' => $request->username, 'password'=>$request->password])){
             $user = Auth::user();
             $success['token'] =  $user->createToken('Password Token')->accessToken;
             $success['name'] = $user->name;
             $success['username'] = $user->username;
+
             return response()->json($success, 200);
         }
         else{

@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Admin from '@/layouts/Admin'
+import AdminMasterLayout from '@/layouts/AdminMasterLayout'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    component: Admin,
+    component: AdminMasterLayout,
     redirect: 'dashboard',
     meta: {
       visible: true,
@@ -26,6 +27,16 @@ const routes = [
         }
       },
       {
+        path: 'niveles',
+        component: () => import('@/views/Niveles'),
+        meta: {
+          visible: true,
+          name: 'Niveles',
+          icon: 'archive',
+          category: 'Menu'
+        }
+      },
+      {
         path: 'parts',
         component: () => import('@/views/Parts'),
         meta: {
@@ -40,8 +51,33 @@ const routes = [
         component: () => import('@/views/Sales'),
         meta: {
           visible: true,
+<<<<<<< HEAD
           name: 'Ventas',
           icon: 'cash-usd-outline'
+=======
+          name: 'Cotizaciones',
+          icon: 'file-document',
+          category: 'Menu'
+        }
+      },
+      {
+        path: 'sales',
+        component: () => import('@/views/Sales'),
+        meta: {
+          visible: true,
+          name: 'Ventas',
+          icon: 'cash-usd-outline'
+        }
+      },
+      {
+        path: 'imports',
+        component: () => import('@/views/Imports'),
+        meta: {
+          visible: true,
+          name: 'Importaciones',
+          icon: 'airplane',
+          category: 'Menu'
+>>>>>>> maintpro
         }
       },
       {
@@ -106,7 +142,7 @@ const routes = [
     },
     children: [
       {
-        path: 'dashboard_admin_institute',
+        path: 'dashboardadmininstitute',
         component: () => import('@/views/DashboardAdminInstitute'),
         meta: {
           visible: true,

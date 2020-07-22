@@ -39,6 +39,10 @@ export default {
       this.$store.dispatch(LOGOUT)
         .then(() => {
           this.$router.push({ path: '/login' })
+          this.$buefy.toast.open({
+            message: 'Hasta Pronto',
+            type: 'is-success'
+          })
         })
     }    
   }

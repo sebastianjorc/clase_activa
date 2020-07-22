@@ -12,6 +12,7 @@ class PartController extends Controller
         'description' => 'required|min:2|max:255',
         'active' => 'boolean'
     ];
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +21,6 @@ class PartController extends Controller
     public function index()
     {
         //TODO obtener los repuestos segun el usuario
-
         $parts = Part::paginate();
         return response()->json($parts, 200);
     }
@@ -32,7 +32,7 @@ class PartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
+    {
         //TODO guardar los repuestos segun el usuario
 
         $request->validate($this->rules);
