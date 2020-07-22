@@ -68,3 +68,5 @@ Para ver los logs de un contenedor en específico
 ```bash
 docker-compose logs -f api|ui|nginx|postgres
 ```
+
+Documentación asociada (incompleta): https://drive.google.com/drive/folders/1SE8WiaJ39bpMiql5v9vhn2wHMwvTzy6Y?usp=sharing
