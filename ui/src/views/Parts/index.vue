@@ -1,6 +1,5 @@
 <template>
   <div id="parts">
-<<<<<<< HEAD
     <b-tabs type="is-boxed" expanded>
       <b-tab-item label="Productos">
         <st-toolbar 
@@ -10,13 +9,6 @@
         />
         <add-part v-if="showAddForm" />
         <edit-part v-if="showEditForm" />
-=======
-    <b-tabs type="is-boxed" expanded @change="defaultState">
-      <b-tab-item label="Productos">
-        <st-toolbar :remove-item="REMOVE_PART"/>
-        <add-part v-show="showAddPart" />
-        <edit-part v-show="showEditPart" />
->>>>>>> maintpro
         <st-table 
           :columns="PARTS_COLUMNS"
           :data="parts.data"
@@ -26,11 +18,8 @@
         />
       </b-tab-item>
       <b-tab-item label="Inventario">
-<<<<<<< HEAD
-=======
         <st-toolbar />
         <add-stock v-if="showAddPart" />
->>>>>>> maintpro
         <st-table :columns="STOCKS_COLUMNS" :data="[]" />
       </b-tab-item>
     </b-tabs>
@@ -44,15 +33,9 @@
   import EditPart from './EditPart'
   import AddStock from './AddStock'
   import { PARTS_COLUMNS, STOCKS_COLUMNS } from './parts.table'
-<<<<<<< HEAD
-  import { TOGGLE_ADD_FORM, TOGGLE_EDIT_FORM } from '@/store/mutations.type'
-  import { GET_PARTS } from '@/store/actions.type'
-  import { mapState, mapGetters } from 'vuex'
-=======
   import { DEFAULT_FORM_STATE, CLEAR_SELECTED_ROW } from '@/store/mutations.type'
   import { GET_PARTS, GET_COMPANIES , REMOVE_PART } from '@/store/actions.type'
   import { mapGetters } from 'vuex'
->>>>>>> maintpro
   export default {
     components: {
       StToolbar,
@@ -68,7 +51,6 @@
         REMOVE_PART: REMOVE_PART
       }
     },
-<<<<<<< HEAD
     computed: {
       ...mapState({
         parts: state => state.part.all,
@@ -76,6 +58,11 @@
       ...mapGetters(['showAddForm', 'showEditForm'])
     },
     methods: {
+      
+      defaultState() {
+        this.$store.commit(DEFAULT_FORM_STATE)
+        this.$store.commit(CLEAR_SELECTED_ROW)
+      },
       addPart() {
         this.$store.commit(TOGGLE_ADD_FORM)
       },
@@ -84,12 +71,6 @@
       },
       removePart() {
         
-=======
-    methods: {
-      defaultState() {
-        this.$store.commit(DEFAULT_FORM_STATE)
-        this.$store.commit(CLEAR_SELECTED_ROW)
->>>>>>> maintpro
       }
     },
     computed: {

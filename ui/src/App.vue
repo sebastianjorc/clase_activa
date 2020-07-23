@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 <template >
   <div id="app" >
-=======
-<template>
-  <div id="app">
->>>>>>> maintpro
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css">
     <router-view />
   </div>
@@ -35,11 +30,6 @@ export default {
 }
 </script>
 
-<<<<<<< HEAD
-<style scoped lang="scss">
-
-</style>
-=======
 <style lang="scss">
 
 // Import Bulma's core
@@ -76,4 +66,3 @@ $link-focus-border: $primary;
   
 </style>
 
->>>>>>> maintpro

@@ -9,12 +9,9 @@
     </b-field>
     <b-field custom-class="is-size-7-mobile" horizontal label="Descripción">
       <b-input custom-class="is-size-7-mobile" v-model="form.description" />
-<<<<<<< HEAD
-=======
     </b-field>
     <b-field custom-class="is-size-7-mobile" horizontal label="Activo">
       <b-switch :value="form.active" v-model="form.active" />
->>>>>>> maintpro
     </b-field>
     <b-field grouped position="is-right">
       <b-field>
@@ -28,12 +25,8 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-import {TOGGLE_EDIT_FORM} from '@/store/mutations.type'
-=======
 import { TOGGLE_EDIT_FORM, CLEAR_SELECTED_ROW } from '@/store/mutations.type'
 import { EDIT_PART } from '@/store/actions.type'
->>>>>>> maintpro
 import { mapGetters } from 'vuex'
 export default {
   data() {
@@ -47,8 +40,6 @@ export default {
   methods: {
     cancel() {
       this.$store.commit(TOGGLE_EDIT_FORM)
-<<<<<<< HEAD
-=======
     },
     editPart() {
       this.$store.dispatch(EDIT_PART, this.form)
@@ -60,24 +51,17 @@ export default {
             type: 'is-warning'
           })
         })
->>>>>>> maintpro
     }
   },
   computed: {
     ...mapGetters(['getSelectedRow']),
     form: function() {
-<<<<<<< HEAD
-      return {
-        name: this.getSelectedRow.name,
-        description: this.getSelectedRow.description
-=======
       const row = this.getSelectedRow;
       return {
         id: (row !== null) ? row.id : '',
         name: (row !== null) ? row.name : '',
         description: (row !== null) ? row.description : '',
         active: (row !== null) ? row.active : ''
->>>>>>> maintpro
       }
     }
   },

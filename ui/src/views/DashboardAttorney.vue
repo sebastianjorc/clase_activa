@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD:ui/src/views/DashboardAttorney.vue
   <section class="hero is-primary welcome is-small">
     <div class="hero-body">
       <div class="container has-text-centered">
@@ -8,54 +7,6 @@
       </div>
     </div>
   </section>
-=======
-  <form class="box">
-    <h1 class="subtitle">Nuevo Vehículo</h1>
-    <b-field custom-class="is-size-7-mobile" horizontal label="Marca">
-      <b-autocomplete
-        clearable
-      >
-        <template slot="empty">No hay resultados</template>
-      </b-autocomplete>
-    </b-field>
-    <b-field custom-class="is-size-7-mobile" horizontal label="Modelo">
-      <b-autocomplete
-        clearable
-      >
-        <template slot="empty">No hay resultados</template>
-      </b-autocomplete>
-    </b-field>
-    <b-field custom-class="is-size-7-mobile" horizontal label="Año">
-      <b-autocomplete
-        clearable
-      >
-        <template slot="empty">No hay resultados</template>
-      </b-autocomplete>
-    </b-field>
-    <b-field custom-class="is-size-7-mobile" horizontal label="Motor">
-      <b-autocomplete
-        clearable
-      >
-        <template slot="empty">No hay resultados</template>
-      </b-autocomplete>
-    </b-field>
-    <b-field custom-class="is-size-7-mobile" horizontal label="Cilindrada">
-      <b-autocomplete
-        clearable
-      >
-        <template slot="empty">No hay resultados</template>
-      </b-autocomplete>
-    </b-field>
-    <b-field grouped position="is-right">
-      <b-field>
-        <b-button @click="cancel" class="is-size-7-mobile" label="Cancelar" />
-      </b-field>
-      <b-field>
-        <b-button @click="addVehicle" icon-left="content-save" class="is-success is-size-7-mobile" label="Guardar" />
-      </b-field>
-    </b-field>
-  </form>
->>>>>>> maintpro:ui/src/views/Vehicles/AddVehicle.vue
 </template>
 
 <script>

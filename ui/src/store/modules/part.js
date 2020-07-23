@@ -1,14 +1,9 @@
 import ApiService from '@/common/api';
 import {
   SET_PARTS,
-<<<<<<< HEAD
-  SET_PART, 
-  SET_ERROR 
-=======
   SET_PART,
   UPDATE_PART,
   SET_ERROR
->>>>>>> maintpro
 } from '../mutations.type';
 import {
   ADD_PART,

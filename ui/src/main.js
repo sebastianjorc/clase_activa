@@ -22,12 +22,8 @@ Vue.use(Buefy)
 
 ApiService.init();
 
-<<<<<<< HEAD
 const whiteList = ['/login'] // no redirect whitelist
 const whiteListtest = ['/test'] // no redirect whitelist
-=======
-const whiteList = ['/login']
->>>>>>> maintpro
 
 router.beforeEach(async(to, from, next) => {
   const hasToken = JwtService.getToken()

@@ -41,13 +41,10 @@ export default {
       this.$store.dispatch(ADD_PART, this.form)
         .then((response) => {
           this.$store.commit(TOGGLE_ADD_FORM)
-<<<<<<< HEAD
-=======
           this.$buefy.toast.open({
             message: 'Producto agregado con éxito',
             type: 'is-success'
           })
->>>>>>> maintpro
         })
     }
   },

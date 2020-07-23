@@ -20,11 +20,7 @@
           :disabled="!isSelected"
         />
       </div>
-<<<<<<< HEAD
       <div class="level-item">
-=======
-      <!-- <div class="level-item">
->>>>>>> maintpro
         <b-button 
           @click="remove" 
           icon-left="delete-outline" 
@@ -47,8 +43,6 @@
         />
       </div>
     </div>
-<<<<<<< HEAD
-=======
 
 <!-- <b-modal 
       :active.sync="isActive"
@@ -87,7 +81,6 @@
         />
       </div>
     </div> -->
->>>>>>> maintpro
     <!-- <div class="level-right">
       <div class="level-item">
         <b-button
@@ -104,9 +97,6 @@
 </template>
 <script>
 
-<<<<<<< HEAD
-import { mapGetters } from 'vuex'
-=======
 import { 
   TOGGLE_ADD_FORM,
   TOGGLE_EDIT_FORM,
@@ -115,7 +105,6 @@ import {
 } from '@/store/mutations.type'
 import { mapGetters } from 'vuex'
 import StModalRemove from './StModalRemove'
->>>>>>> maintpro
 
 export default {
   name: 'StToolbar',
@@ -138,10 +127,6 @@ export default {
       this.$store.commit(TOGGLE_EDIT_FORM);
     },
     remove() {
-<<<<<<< HEAD
-      this.removeItem()
-    },
-=======
       this.$buefy.modal.open({
         parent: this,
         component: StModalRemove,
@@ -172,20 +157,14 @@ export default {
     details() {
       // this.detailsItem()
     }
->>>>>>> maintpro
     // cancel() {
       
     // }
   },
   computed: {
     ...mapGetters(['getSelectedRow']),
-<<<<<<< HEAD
-    isSelected(){
-      return this.getSelectedRow === null ? false : true
-=======
     isSelected() {
       return this.getSelectedRow === null ? false : true;
->>>>>>> maintpro
     }
   },
 }
